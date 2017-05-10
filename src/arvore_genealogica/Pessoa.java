@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pessoa {
-	private String nome;
-	private int idade;
-	private char sexo;///Muda pra classe mulher
-	private Pessoa conjuge;
-	private Pessoa mae;
-	private Pessoa pai;
 	
-	private List<Pessoa> exs = new ArrayList<Pessoa>();
+	protected double altura;
+	protected double peso;
+	
+	protected String nome;
+	protected int idade;
+	protected char sexo;///Muda pra classe mulher
+	protected Pessoa conjuge;
+	protected Pessoa mae;
+	protected Pessoa pai;
+	
+	protected List<Pessoa> exs = new ArrayList<Pessoa>();
 	public Pessoa(){};
 	//Construtor
 	
@@ -216,5 +220,17 @@ public class Pessoa {
 	}
 	public void setExs(List<Pessoa> exs) {
 		this.exs = exs;
+	}
+	public double getAltura() {
+		return altura;
+	}
+	public void setAltura(double altura) {
+		this.altura = altura;
+	}
+	public double getPeso() {
+		return peso;
+	}
+	public void setPeso(double peso) {
+		this.peso = peso;
 	}
 }

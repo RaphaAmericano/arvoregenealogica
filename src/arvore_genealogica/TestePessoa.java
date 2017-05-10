@@ -12,6 +12,7 @@ public class TestePessoa {
 		Pessoa h2 = new Pessoa("Quico", 10, m1, null);
 		Pessoa h3 = new Pessoa("Seu Barriga", 68, null, null);
 		Pessoa h4 = new Pessoa("Nhonho", 12, null, h3);
+		Pessoa m2 = new Mulher();
 		
 		//Testes
 		//Familia 1
