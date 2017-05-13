@@ -41,6 +41,11 @@ public class Pessoa {
 	}
 
 	//Métodos
+	//Método IMC -- Corrigir depois
+	public void calcularIMC(){};
+	
+	
+	
 	//Método Casar
 	public void casar(Pessoa p){
 		//Condicoções 
@@ -87,24 +92,24 @@ public class Pessoa {
 	
 	public void verificarEstadoCivil(){
 		if(this.getConjuge() != null ){
-			System.out.println(this.getNome() + " é casad");
-			if(this.getSexo() = "M"){
+			System.out.print(this.getNome() + " é casad");
+			if(this.getSexo() == 'M'){
 				System.out.print("o");
 			} else{
 				System.out.print("a");
 			}
 		}
 		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
-			System.out.println(this.getNome() + " é solteir");
-			if(this.getSexo() == "M"){
+			System.out.print(this.getNome() + " é solteir");
+			if(this.getSexo() == 'M'){
 				System.out.print("o");
 			} else{
 				System.out.print("a");
 			}
 		}
 		else{
-			System.out.println(his.getNome() + " é divorciad");
-			if(this.getSexo() == "M"){
+			System.out.print(this.getNome() + " é divorciad");
+			if(this.getSexo() == 'M'){
 				System.out.print("o");
 			} else {
 				System.out.print("a");
@@ -123,6 +128,15 @@ public class Pessoa {
 			System.out.print("- Ex Casamentos:");
 			for(Pessoa pessoa : exs){
 				System.out.println("---"+ pessoa.getNome());
+			}
+		}
+	};
+	
+	//Listar filhos
+	public void listarFilhos(){
+		for(Pessoa filho: TestePessoa.todasPessoas){
+			if(filho.getMae() == this || filho.getPai() == this ){
+				System.out.println( filho.getNome());
 			}
 		}
 	};
@@ -175,7 +189,6 @@ public class Pessoa {
 		}
 		*/
 	};
-	
 	
 	
 	//Métodos de Acesso
