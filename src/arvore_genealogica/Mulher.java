@@ -1,10 +1,24 @@
 package arvore_genealogica;
+import java.math.*;
 
-public class Mulher extends Pessoa{
+public class Mulher extends Pessoa {
 	
 	public Mulher(){
 		this.setSexo('F');
 	}
+	/*
+	public void fazerFilho(Object affair){
+		int numeroRandomico;
+		numeroRandomico = (int) (Math.random() * 5 );
+		if(numeroRandomico >= 5 ){
+			Pessoa m1 = new Mulher();
+		} else if(numeroRandomico < 5){
+			Pessoa m1 = new Homem();
+		};
+		m1.setPai(this);
+		m1.setMae(affair);
+	};
+	*/
 	public void calcularIMC(){
 		double imc =  this.peso / this.altura;
 		
