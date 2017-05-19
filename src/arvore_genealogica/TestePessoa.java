@@ -54,5 +54,7 @@ public class TestePessoa {
 		tm7.calcularIMC();
 		System.out.println(todasPessoas.size());
 		System.out.println(th8.getSexo());
+		th8.fazerFilho();
+		th8.listarFilhos();
 	}
 }

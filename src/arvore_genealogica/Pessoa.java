@@ -3,7 +3,7 @@ package arvore_genealogica;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pessoa {
+public class Pessoa implements Utilitarios{
 	
 	protected double altura;
 	protected double peso;
@@ -19,28 +19,21 @@ public class Pessoa {
 	public Pessoa(){};
 	//Construtor
 	
-	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai) {
+	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai /*, char sexo*/) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
 		this.mae = mae;
 		this.pai = pai;
-		
-		//Fazer o contrutor funcionar recebendo a variavel tipo char
-		/*
-		if(sexo != "M" || sexo != "m" || sexo != "F" || sexo != "f" ){
-			return;
-		}
-		if(sexo == "m"){ sexo == "M";}
-		if(sexo == "f"){ sexo == "F";} 
-		 * */
-		
-		
+		//this.sexo = sexo;
 		//Adiciona a pessoa criada ao ArrayList
 		TestePessoa.todasPessoas.add(this);
 	}
 
 	//Métodos
+	//Métodos da interface
+	public void fazerFilho(){};
+	
 	//Método IMC -- Corrigir depois
 	public void calcularIMC(){};
 	

@@ -6,21 +6,22 @@ public class Homem extends Pessoa {
 	public Homem(){
 		this.setSexo('M');
 	};
-	/*
-	public void fazerFilho(Object affair){
-		int numeroRandomico;
-		numeroRandomico = (int) (Math.random() * 5 );
-		if(numeroRandomico >= 5 ){
-			Pessoa m1 = new Mulher();
-		} else if(numeroRandomico < 5){
-			Pessoa m1 = new Homem();
-		};
-		m1.setPai(this);
-		m1.setMae(affair);
-	};
-	*/
 	
-	public Homem(){
-		this.setSexo('M');
+	public void fazerFilho(){
+		//Gera um número randomicamente
+		int numeroRandomico = (int) (Math.random() * 10 );
+		
+		//Usa o numero para definir o sexo do filho
+		if(numeroRandomico >= 5 ){
+			System.out.println(numeroRandomico + " Mulher");
+			Pessoa np = new Mulher();
+		} else if(numeroRandomico < 5){
+			System.out.println(numeroRandomico + " Homem");
+			Pessoa np = new Mulher();
+		};
+		
+		//np.setPai(this);
+		//np.setMae(affair);
 	};
+
 }
