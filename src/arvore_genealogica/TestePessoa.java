@@ -60,6 +60,28 @@ public class TestePessoa {
 		for(int i = 0; i < todasPessoas.size(); i++){
 			System.out.println(todasPessoas.get(i).getNome());
 		}
+		
+		// Árvore OFICIAL - Família Chaves
+		
+		// Primeira Geração
+		Pessoa mDonaNeves = new Mulher("Dona Neves", 99, null, null);
+		Pessoa hSirNeves = new Homem("Sir Neves", 100, null, null);		
+		Pessoa mDonaMadruga = new Mulher("Dona Madruga", 80, null, null);
+		Pessoa hSirMadruga = new Homem("Sir Madruga", 85, null, null);
+		// Segunda Geração
+		Pessoa hQuicoPai = new Homem("Quico Pai", 55, mDonaNeves, hSirNeves);
+		Pessoa mDonaFlorinda = new Mulher("Dona Florinda", 41, null, null);
+		Pessoa hProfessorGirafales = new Homem("ProfessorGirafales", 45, null, null);	
+		Pessoa mMaeChiquinha = new Mulher("Mae da Chiquinha", 40, mDonaNeves, hSirNeves);
+		Pessoa hSeuMadruga = new Homem("Seu Madruga", 49, mDonaMadruga, hSirMadruga);
+		Pessoa mBruxaDo71 = new Mulher("Bruxa do 71", 52, null, null);
+		// Terceira Geração
+		Pessoa hQuico = new Homem("Quico", 8, mDonaFlorinda, hQuicoPai);
+		Pessoa mKika = new Mulher("Kika", 15, mDonaFlorinda, hQuicoPai);
+		Pessoa mChiquinha = new Mulher("Chiquinha", 8, mMaeChiquinha, hSeuMadruga);
+		Pessoa hChaves = new Homem("Chaves", 8, mBruxaDo71, hSeuMadruga);
+		
+		
 
 	}
 }
