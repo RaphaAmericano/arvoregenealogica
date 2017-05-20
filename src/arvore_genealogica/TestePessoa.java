@@ -50,11 +50,14 @@ public class TestePessoa {
 		m1.verificarEstadoCivil();
 		//h1.divorciar(m1);
 		
-		th1.listarFilhos();
-		tm7.calcularIMC();
-		System.out.println(todasPessoas.size());
+		//th1.listarFilhos();
+		//tm7.calcularIMC();
+		//System.out.println(todasPessoas.size());
 		System.out.println(th8.getSexo());
 		th8.fazerFilho();
 		th8.listarFilhos();
+		for(int i = 0; i < todasPessoas.size(); i++){
+			System.out.println(todasPessoas.get(i).getNome());
+		}
 	}
 }

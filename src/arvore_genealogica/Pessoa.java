@@ -16,7 +16,9 @@ public class Pessoa implements Utilitarios{
 	protected Pessoa pai;
 	
 	protected List<Pessoa> exs = new ArrayList<Pessoa>();
-	public Pessoa(){};
+	public Pessoa(){
+		TestePessoa.todasPessoas.add(this);
+	};
 	//Construtor
 	
 	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai /*, char sexo*/) {
@@ -83,32 +85,9 @@ public class Pessoa implements Utilitarios{
 		System.out.println("*** "+this.getNome()+" tá na pista de novo!!");
 	};
 	
-	public void verificarEstadoCivil(){
-		if(this.getConjuge() != null ){
-			System.out.print(this.getNome() + " é casad");
-			if(this.getSexo() == 'M'){
-				System.out.print("o");
-			} else{
-				System.out.print("a");
-			}
-		}
-		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
-			System.out.print(this.getNome() + " é solteir");
-			if(this.getSexo() == 'M'){
-				System.out.print("o");
-			} else{
-				System.out.print("a");
-			}
-		}
-		else{
-			System.out.print(this.getNome() + " é divorciad");
-			if(this.getSexo() == 'M'){
-				System.out.print("o");
-			} else {
-				System.out.print("a");
-			}
-		}
-	};
+	//Método para verificar Estado Civil
+	public void verificarEstadoCivil(){};
+	
 	//Lista de casamentos
 	public void listarCasamentos(){
 		System.out.println("*** Casamentos da pessoa "+ this.getNome() + ":");
