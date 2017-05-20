@@ -47,5 +47,18 @@ public class Mulher extends Pessoa {
 		}
 		//Informações acima sobre tipos de obesidade foram retiradas da internet e não necessariamente foram verificadas
 	};
+	
+	//Método para verificar Estado Civil
+	public void verificarEstadoCivil(){
+		if(this.getConjuge() != null ){
+			System.out.print(this.getNome() + " é casada");
+		}
+		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
+			System.out.print(this.getNome() + " é solteira");
+		}
+		else{
+			System.out.print(this.getNome() + " é divorciada");
+		}
+	};
 }
 
