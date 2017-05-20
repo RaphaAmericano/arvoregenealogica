@@ -37,9 +37,6 @@ public class Pessoa implements Utilitarios{
 	//Métodos da interface
 	public void fazerFilho(){};
 	
-	//Método IMC -- Corrigir depois
-	public void calcularIMC(){};
-	
 	
 	
 	//Método Casar

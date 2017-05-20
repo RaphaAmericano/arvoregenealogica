@@ -1,7 +1,7 @@
 package arvore_genealogica;
 import java.math.*;
 
-public class Mulher extends Pessoa {
+public class Mulher extends Pessoa implements ControledePeso {
 	
 	public Mulher(){
 		
