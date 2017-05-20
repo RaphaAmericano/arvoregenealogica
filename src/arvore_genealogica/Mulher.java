@@ -3,7 +3,8 @@ import java.math.*;
 
 public class Mulher extends Pessoa {
 	
-	public Mulher(){
+	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai){
+		super(nome, idade, mae, pai);
 		this.setSexo('F');
 	}
 	/*

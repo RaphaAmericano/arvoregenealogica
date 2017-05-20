@@ -56,5 +56,8 @@ public class TestePessoa {
 		System.out.println(th8.getSexo());
 		th8.fazerFilho();
 		th8.listarFilhos();
+		
+	
+		
 	}
 }
