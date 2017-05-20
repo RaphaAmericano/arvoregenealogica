@@ -7,6 +7,7 @@ import java.util.List;
 public class TestePessoa {
 	public static List<Pessoa> todasPessoas = new ArrayList<Pessoa>();
 	public static void main(String[] args) {
+		/*
 		Pessoa m1 = new Pessoa("Dona Florinda", 60,  null, null );
 		Pessoa h1 = new Pessoa("Professor Girafales", 65, null, null);
 		Pessoa h2 = new Pessoa("Quico", 10, m1, null);
@@ -60,28 +61,55 @@ public class TestePessoa {
 		for(int i = 0; i < todasPessoas.size(); i++){
 			System.out.println(todasPessoas.get(i).getNome());
 		}
+		*/
 		
 		// Árvore OFICIAL - Família Chaves
 		
+		// Criação de pessoas
 		// Primeira Geração
-		Pessoa mDonaNeves = new Mulher("Dona Neves", 99, null, null);
-		Pessoa hSirNeves = new Homem("Sir Neves", 100, null, null);		
-		Pessoa mDonaMadruga = new Mulher("Dona Madruga", 80, null, null);
-		Pessoa hSirMadruga = new Homem("Sir Madruga", 85, null, null);
+		Pessoa donaNeves = new Mulher("Dona Neves", 99, null, null);
+		Pessoa sirNeves = new Homem("Sir Neves", 100, null, null);		
+		Pessoa donaMadruga = new Mulher("Dona Madruga", 80, null, null);
+		Pessoa sirMadruga = new Homem("Sir Madruga", 85, null, null);
 		// Segunda Geração
-		Pessoa hQuicoPai = new Homem("Quico Pai", 55, mDonaNeves, hSirNeves);
-		Pessoa mDonaFlorinda = new Mulher("Dona Florinda", 41, null, null);
-		Pessoa hProfessorGirafales = new Homem("ProfessorGirafales", 45, null, null);	
-		Pessoa mMaeChiquinha = new Mulher("Mae da Chiquinha", 40, mDonaNeves, hSirNeves);
-		Pessoa hSeuMadruga = new Homem("Seu Madruga", 49, mDonaMadruga, hSirMadruga);
-		Pessoa mBruxaDo71 = new Mulher("Bruxa do 71", 52, null, null);
+		Pessoa quicoPai = new Homem("Quico Pai", 55, donaNeves, sirNeves);
+		Pessoa donaFlorinda = new Mulher("Dona Florinda", 41, null, null);
+		Pessoa professorGirafales = new Homem("ProfessorGirafales", 45, null, null);	
+		Pessoa maeChiquinha = new Mulher("Mae da Chiquinha", 40, donaNeves, sirNeves);
+		Pessoa seuMadruga = new Homem("Seu Madruga", 49, donaMadruga, sirMadruga);
+		Pessoa bruxaDo71 = new Mulher("Bruxa do 71", 52, null, null);
 		// Terceira Geração
-		Pessoa hQuico = new Homem("Quico", 8, mDonaFlorinda, hQuicoPai);
-		Pessoa mKika = new Mulher("Kika", 15, mDonaFlorinda, hQuicoPai);
-		Pessoa mChiquinha = new Mulher("Chiquinha", 8, mMaeChiquinha, hSeuMadruga);
-		Pessoa hChaves = new Homem("Chaves", 8, mBruxaDo71, hSeuMadruga);
+		Pessoa quico = new Homem("Quico", 8, donaFlorinda, quicoPai);
+		Pessoa kika = new Mulher("Kika", 15, donaFlorinda, quicoPai);
+		Pessoa chiquinha = new Mulher("Chiquinha", 8, maeChiquinha, seuMadruga);
+		Pessoa chaves = new Homem("Chaves", 8, bruxaDo71, seuMadruga);
 		
+		// TESTES
 		
+		// Teste - Relação de Parentesco	
+		Pessoa[] pessoasParentesco1 = {chaves, quicoPai, donaFlorinda, professorGirafales, donaFlorinda, 
+				chaves, chiquinha, sirNeves, donaNeves, quicoPai, maeChiquinha, quico, chiquinha};
+		Pessoa[] pessoasParentesco2 = {donaFlorinda, quico, quico, donaFlorinda, professorGirafales, 
+				seuMadruga, seuMadruga, chiquinha, chiquinha, chiquinha, quico, maeChiquinha, quicoPai};
+		String[] resultadosParentesco = {"Chaves e Dona Florinda não têm parentesco", 
+				"Quico Pai é pai de Quico", "Dona Florinda é mãe de Quico", 
+				"Prof Girafales é marido de Dona Florinda", "Dona Florinda é esposa de Prof Girafales", 
+				"Chaves é filho Seu Madruga", "Chiquinha é filha de seu madruga", 
+				"Sir Neves é avô de chiquinha", "Dona Neves é avó de chiquinha", 
+				"Quico pai é tio de Chiquinha", "Mãe da Chiquinha é tia de Quico", 
+				"Quico é sobrinho de Mãe da Chiquinha", "Chiquinha é sobrinha de Quico Pai"};
+		
+		System.out.println("--- Teste Parentesco ---");
+		for(int i = 0; i<resultadosParentesco.length; i++ ){
+			System.out.println("- Esperado:\n" + resultadosParentesco[i] + "\n- Resultado:");
+			pessoasParentesco1[i].verificarParentesco(pessoasParentesco2[i]);
+			System.out.println("\n");
+		}
+		System.out.println("--- Fim Teste Parentesco ---");
 
+
+		
+		
+		
 	}
 }
