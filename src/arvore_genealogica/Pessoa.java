@@ -5,23 +5,17 @@ import java.util.List;
 
 public abstract class Pessoa{
 	
-	//protected double altura;
-	//protected double peso;   // Características exclusivas para Mulher
-	
-	
 	protected String nome;
 	protected int idade;
 	protected char sexo;///Muda pra classe mulher
 	protected Pessoa conjuge;
 	protected Pessoa mae;
 	protected Pessoa pai;
-	
 	protected List<Pessoa> exs = new ArrayList<Pessoa>();
+	
 	public Pessoa(){
 		TestePessoa.todasPessoas.add(this);
 	}
-
-	//Construtor
 	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai /*, char sexo*/) {
 		super();
 		this.nome = nome;
@@ -53,13 +47,9 @@ public abstract class Pessoa{
 		}
 	}
 	
-	
-	
 	public void casar(Pessoa p){
 		//Condicoções 
 		//idade >= 16, não pode estar casado, não pode ser pai, mão, ele proprio ou pessoas esquisitas
-		
-		
 		if(p == null){
 			System.out.println("Não pode casar com null");
 			return;
@@ -81,7 +71,6 @@ public abstract class Pessoa{
 		System.out.println("Casou! TAM TAM TAM TAAAAAM! *** Pode beijar a noiva!");
 	}
 	
-	//Divorciar
 	public void divorciar(Pessoa p){
 		if(p == null){
 			System.out.println("Não pode divorciar de Null");
@@ -99,7 +88,6 @@ public abstract class Pessoa{
 		System.out.println("*** "+this.getNome()+" tá na pista de novo!!");
 	}
 	
-	//Método para verificar Estado Civil
 	public void verificarEstadoCivil(){
 		String married;
 		String single;
@@ -125,7 +113,6 @@ public abstract class Pessoa{
 		}
 	}
 	
-	//Lista de casamentos
 	public void listarCasamentos(){
 		System.out.println("*** Casamentos da pessoa "+ this.getNome() + ":");
 		if(this.getConjuge() != null ){
@@ -142,7 +129,6 @@ public abstract class Pessoa{
 	}
 	
 	
-	//Verificar parentesco
 	public void verificarParentesco(Pessoa p){
 		//verificações básicas - se p é null, this == p, ... 
 		if(p == null) {
