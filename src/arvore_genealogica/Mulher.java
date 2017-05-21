@@ -8,9 +8,6 @@ public class Mulher extends Pessoa implements ControledePeso {
 	protected double peso = 65;     // peso padrão
 	
 	// Construtores
-	public Mulher(){
-		
-	}
 	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai){
 		super(nome, idade, mae, pai);
 		this.setSexo('F');
@@ -22,20 +19,6 @@ public class Mulher extends Pessoa implements ControledePeso {
 		this.setPeso(peso);
 		
 	}
-	
-	/*
-	public void fazerFilho(Object affair){
-		int numeroRandomico;
-		numeroRandomico = (int) (Math.random() * 5 );
-		if(numeroRandomico >= 5 ){
-			Pessoa m1 = new Mulher();
-		} else if(numeroRandomico < 5){
-			Pessoa m1 = new Homem();
-		};
-		m1.setPai(this);
-		m1.setMae(affair);
-	};
-	*/
 	
 	// Implementa o método Calcular IMC
 	public void calcularIMC(){
@@ -92,7 +75,7 @@ public class Mulher extends Pessoa implements ControledePeso {
 	}
 	public void setPeso(double peso) {
 		this.peso = peso;
-	};
+	}
 	
 	
 }

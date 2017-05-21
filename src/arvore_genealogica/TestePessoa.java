@@ -98,6 +98,14 @@ public class TestePessoa {
 		}
 		System.out.println("--- Fim Teste Calcular IMC ---");
 
+		// Fazer filho
+		Pessoa p2 = new Homem("João", 20, null, null);
+		Pessoa p1 = new Mulher("Maria", 20, null, null);
+		p1.fazerFilho("Joao", "Joana", p1, p2);
+		p1.fazerFilho("Joao", "Joana", p1, p2);
+		p1.fazerFilho("Joao", "Joana", p1, p2);
+		p1.fazerFilho("Joao", "Joana", p1, p2);
+
 
 		
 	}

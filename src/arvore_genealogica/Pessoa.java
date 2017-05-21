@@ -20,8 +20,8 @@ public abstract class Pessoa implements Utilitarios{
 	public Pessoa(){
 		TestePessoa.todasPessoas.add(this);
 	};
+
 	//Construtor
-	
 	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai /*, char sexo*/) {
 		super();
 		this.nome = nome;
@@ -33,13 +33,21 @@ public abstract class Pessoa implements Utilitarios{
 		TestePessoa.todasPessoas.add(this);
 	}
 
-	//Métodos
-	//Métodos da interface
-	public void fazerFilho(){};
+	public void fazerFilho(String nomeMenino, String nomeMenina, Pessoa mae, Pessoa pai){
+		Pessoa np;
+		int numeroRandomico = (int)(Math.random() * 2) + 1;
+		if(numeroRandomico == 1 ){
+			np = new Mulher(nomeMenina, 0, mae, pai);
+			System.out.println("Parabéns! É uma menina e o nome dela é " + np.getNome());
+		} else if(numeroRandomico == 2){
+			np = new Homem(nomeMenino, 0, mae, pai);
+			System.out.println("Parabéns! É um menino e o nome dele é " + np.getNome());
+		};
+		
+	};
 	
 	
 	
-	//Método Casar
 	public void casar(Pessoa p){
 		//Condicoções 
 		//idade >= 16, não pode estar casado, não pode ser pai, mão, ele proprio ou pessoas esquisitas
