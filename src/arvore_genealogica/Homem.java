@@ -8,15 +8,4 @@ public class Homem extends Pessoa {
 		this.setSexo('M');
 	}
 	
-	public void verificarEstadoCivil(){
-		if(this.getConjuge() != null ){
-			System.out.print(this.getNome() + " é casado");
-		}
-		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
-			System.out.print(this.getNome() + " é solteiro");
-		}
-		else{
-			System.out.print(this.getNome() + " é divorciado");
-		}
-	}
 }

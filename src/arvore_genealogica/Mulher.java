@@ -51,17 +51,6 @@ public class Mulher extends Pessoa implements ControledePeso {
 	
 	//Método para verificar Estado Civil
 	//TODO: implementar na classe Pessoa
-	public void verificarEstadoCivil(){
-		if(this.getConjuge() != null ){
-			System.out.print(this.getNome() + " é casada");
-		}
-		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
-			System.out.print(this.getNome() + " é solteira");
-		}
-		else{
-			System.out.print(this.getNome() + " é divorciada");
-		}
-	}
 	
 	// Métodos de acesso
 	public double getAltura() {

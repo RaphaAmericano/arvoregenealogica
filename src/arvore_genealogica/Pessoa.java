@@ -100,7 +100,30 @@ public abstract class Pessoa{
 	}
 	
 	//Método para verificar Estado Civil
-	public void verificarEstadoCivil(){};
+	public void verificarEstadoCivil(){
+		String married;
+		String single;
+		String divorced;
+		if(this instanceof Mulher){
+			married = " é casada";
+			single = " é solteira";
+			divorced = " é divorciada";
+		}else{
+			married = " é casado";
+			single = " é solteiro";
+			divorced = " é divorciado";
+		}
+		
+		if(this.getConjuge() != null ){
+			System.out.print(this.getNome() + married);
+		}
+		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
+			System.out.print(this.getNome() + single);
+		}
+		else{
+			System.out.print(this.getNome() + divorced);
+		}
+	}
 	
 	//Lista de casamentos
 	public void listarCasamentos(){
@@ -117,6 +140,7 @@ public abstract class Pessoa{
 			}
 		}
 	}
+	
 	
 	//Verificar parentesco
 	public void verificarParentesco(Pessoa p){

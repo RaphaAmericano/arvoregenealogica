@@ -114,6 +114,7 @@ public class TestePessoa {
 		p2.listarFilhos();
 		System.out.println("--- Fim Teste Listar filhos ---\n");
 
+		p2.verificarEstadoCivil();
 		
 	}
 }
