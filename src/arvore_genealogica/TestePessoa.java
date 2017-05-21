@@ -95,38 +95,38 @@ public class TestePessoa {
 
 
 		// TESTES
-
-		// Teste - Relação de Parentesco
-		// Entrada de informacoes dos casos de teste
-		Pessoa[] pessoasTesteParentesco1 = {chaves, quicoPai, donaFlorinda, profGirafales, donaFlorinda, 
-				chaves, chiquinha, sirNeves, donaNeves, quicoPai, maeChiquinha, quico, chiquinha, chaves, chaves, chiquinha};
-		Pessoa[] pessoasTesteParentesco2 = {donaFlorinda, quico, quico, donaFlorinda, profGirafales, 
-				seuMadruga, seuMadruga, chiquinha, chiquinha, chiquinha, quico, maeChiquinha, quicoPai, null, chaves, chaves};
-		String[] resultadosTesteParentesco = {"Chaves e Dona Florinda não têm parentesco", 
-				"Quico Pai é pai de Quico", "Dona Florinda é mãe de Quico", 
-				"Prof Girafales é marido de Dona Florinda", "Dona Florinda é esposa de Prof Girafales", 
-				"Chaves é filho de Seu Madruga", "Chiquinha é filha de Seu Madruga", 
-				"Sir Neves é avô de Chiquinha", "Dona Neves é avó de Chiquinha", 
-				"Quico pai é tio de Chiquinha", "Mãe da Chiquinha é tia de Quico", 
-				"Quico é sobrinho de Mãe da Chiquinha", "Chiquinha é sobrinha de Quico Pai",
-				"Erro - não é possível verificar parentesco com pessoa 'nula' (null)", 
-				"Erro - não é possível verificar parentesco de uma pessoa com ela mesma",
-				"Chiquinha é meia-irmã de Chaves"};
-		// Realiza os testes mapeados
+		// Parentesco
+		Object[][] testeParentesco = {
+				{chaves, donaFlorinda, "Chaves e Dona Florinda não tem parentesco"},
+				{quicoPai, quico, "Quico Pai é pai de Quico"},
+				{donaFlorinda, quico, "Dona Florinda é mãe de Quico"},
+				{profGirafales, donaFlorinda, "Prof Girafales é marido de Dona Florinda"},
+				{donaFlorinda, profGirafales, "Dona Florinda é esposa de Prof Girafales"},
+				{chaves, seuMadruga, "Chaves é filho de Seu Madruga"},
+				{chiquinha, seuMadruga, "Chiquinha é filha de Seu Madruga"},
+				{sirNeves, chiquinha, "Sir Neves é avô de Chiquinha"},
+				{donaNeves, chiquinha, "Dona Neves é avó de Chiquinha"},
+				{quicoPai, chiquinha, "Quico pai é tio de Chiquinha"},
+				{maeChiquinha, quico, "Mãe da Chiquinha é tia de Quico"},
+				{quico, maeChiquinha, "Quico é sobrinho de Mãe da Chiquinha"},
+				{chiquinha, quicoPai, "Chiquinha é sobrinha de Quico Pai"},
+				{chaves, null, "Erro - não é possível verificar parentesco com pessoa 'nula' (null)"},
+				{chaves, chaves, "Erro - não é possível verificar parentesco de uma pessoa com ela mesma"},
+				{chiquinha, chaves, "Chiquinha é meia-irmã de Chaves"}
+				};
 		System.out.println("--- Teste Parentesco ---");
-		for(int i = 0; i<resultadosTesteParentesco.length; i++ ){
+		for(int i = 0; i<testeParentesco.length; i++ ){
 			// Imprime o resultado esperado
-			System.out.println("- Esperado:\n" + resultadosTesteParentesco[i] + "\n- Resultado:");
+			System.out.println("- Esperado:\n" + testeParentesco[i][2] + "\n- Resultado:");
 			// Verifica parentesco entre pessoa 1 e pessoa 2
-			pessoasTesteParentesco1[i].verificarParentesco(pessoasTesteParentesco2[i]);
+			Pessoa parente1 = (Pessoa)testeParentesco[i][0];
+			Pessoa parente2 = (Pessoa)testeParentesco[i][1];
+			parente1.verificarParentesco(parente2);
 			System.out.println("");
 		}
 		System.out.println("--- Fim Teste Parentesco ---");
 		
-		
-		// Testes Calcular IMC
-		
-		// Entrada de informacoes dos casos de teste
+		// IMC
 		Pessoa[] pessoasTesteIMC = {donaFlorinda, donaNeves, maeChiquinha, profGirafales};
 		double[] alturasTesteIMC = {1.75, 1.45, 1.65, 2.10};
 		double[] pesosTesteIMC = {66.6, 32.5, 80, 110};
@@ -151,7 +151,7 @@ public class TestePessoa {
 			}
 			System.out.println("");
 		}
-		System.out.println("--- Fim Teste Parentesco ---");
+		System.out.println("--- Fim Teste Calcular IMC ---");
 
 
 		
