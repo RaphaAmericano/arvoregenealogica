@@ -3,7 +3,7 @@ package arvore_genealogica;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Pessoa implements Utilitarios{
+public abstract class Pessoa{
 	
 	//protected double altura;
 	//protected double peso;   // Características exclusivas para Mulher
