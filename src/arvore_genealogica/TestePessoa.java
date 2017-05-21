@@ -106,8 +106,8 @@ public class TestePessoa {
 		String[] resultadosParentesco = {"Chaves e Dona Florinda não têm parentesco", 
 				"Quico Pai é pai de Quico", "Dona Florinda é mãe de Quico", 
 				"Prof Girafales é marido de Dona Florinda", "Dona Florinda é esposa de Prof Girafales", 
-				"Chaves é filho de Seu Madruga", "Chiquinha é filha de seu madruga", 
-				"Sir Neves é avô de chiquinha", "Dona Neves é avó de chiquinha", 
+				"Chaves é filho de Seu Madruga", "Chiquinha é filha de Seu Madruga", 
+				"Sir Neves é avô de Chiquinha", "Dona Neves é avó de Chiquinha", 
 				"Quico pai é tio de Chiquinha", "Mãe da Chiquinha é tia de Quico", 
 				"Quico é sobrinho de Mãe da Chiquinha", "Chiquinha é sobrinha de Quico Pai",
 				"Erro - não é possível verificar parentesco com pessoa 'nula' (null)", 
@@ -126,8 +126,6 @@ public class TestePessoa {
 		System.out.println("--- Fim Teste Parentesco ---");
 
 
-		
-		
 		
 	}
 }

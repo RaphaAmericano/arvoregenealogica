@@ -111,7 +111,7 @@ public class Pessoa implements Utilitarios{
 		}
 	};
 	
-	//Metodo de verificar parentesco
+	//Verificar parentesco
 	public void verificarParentesco(Pessoa p){
 		//verificações básicas - se p é null, this == p, ... 
 		if(p == null) {
@@ -142,21 +142,32 @@ public class Pessoa implements Utilitarios{
 				return;
 			}
 		}
-
 		//Filho
-		if(this.getPai() == p || this.getMae() == p ){
-			System.out.println(this.getNome() + " é filho de "+ p.getNome() );
-			return;
+		if( (this.getPai() != null && this.getPai() == p) || (this.getMae() != null && this.getMae() == p) ){
+			if(this instanceof Homem){
+				System.out.println(this.getNome() + " é filho de "+ p.getNome() );
+				return;
+			} else {
+				System.out.println(this.getNome() + " é filha de "+ p.getNome() );
+				return;
+			}
 		}
 		//Avô
-		if((p.getPai() != null && this == p.getPai().getPai()) || (p.getMae() != null && this == p.getMae().getPai() ) ){
-			System.out.println("* " + this.getNome() + " é avô de " + p.getNome());
+		if((p.getPai() != null && p.getPai().getPai() != null && this == p.getPai().getPai()) || 
+				(p.getMae() != null && p.getMae().getPai() != null && this == p.getMae().getPai() ) ){
+			System.out.println(this.getNome() + " é avô de " + p.getNome());
+			return;
+		}
+		//Avó
+		if((p.getPai() != null && p.getPai().getMae() != null && this == p.getPai().getMae()) || 
+				(p.getMae() != null && p.getMae().getMae() != null && this == p.getMae().getMae() ) ){
+			System.out.println(this.getNome() + " é avó de " + p.getNome());
 			return;
 		}
 		//Irmão
 		if( ((this.getPai() != null && p.getPai() != null) && this.getPai() == p.getPai()) && 
 				(this.getMae() != null && p.getMae() != null) && this.getMae() == p.getMae()) {
-			if(this.sexo == 'M'){
+			if(this instanceof Homem){
 				System.out.println(this.getNome() + " é irmão de " + p.getNome());
 				return;
 			} else {
@@ -164,10 +175,10 @@ public class Pessoa implements Utilitarios{
 				return;
 			}
 		}
-		//Meio irmão
+		//Meio-irmão
 		if( ((this.getPai() != null && p.getPai() != null) && this.getPai() == p.getPai()) || 
 				(this.getMae() != null && p.getMae() != null) && this.getMae() == p.getMae()) {
-			if(this.sexo == 'M'){
+			if(this instanceof Homem){
 				System.out.println(this.getNome() + " é meio-irmão de " + p.getNome());
 				return;
 			} else {
@@ -175,25 +186,47 @@ public class Pessoa implements Utilitarios{
 				return;
 			}
 		}
-		//Tio 
-		/*
-		if((p.getPai() || p.getMae()) == (this.getPai().getPai() || this.getMae().getPai() || this.getPai().getMae() || this.getMae().getMae())){
-			System.out.println(p.getNome() + " É Sobrinho de " this.getNome());
-			return;
-		}*/
-
+		// Tio(a)
+		if( (this.getPai() != null && p.getPai() != null && p.getPai().getPai() != null && 
+				this.getPai() == p.getPai().getPai() ) ||
+				(this.getPai() != null && p.getMae() != null && p.getMae().getPai() != null && 
+				this.getPai() == p.getMae().getPai() ) ||
+				(this.getMae() != null && p.getPai() != null && p.getPai().getMae() != null && 
+				this.getMae() == p.getPai().getMae() ) ||
+				(this.getMae() != null && p.getMae() != null && p.getMae().getMae() != null && 
+				this.getMae() == p.getMae().getMae() )) {
+			if (this instanceof Homem) {
+				System.out.println(this.getNome() + " é tio de " + p.getNome());
+				return;
+			} else {
+				System.out.println(this.getNome() + " é tia de " + p.getNome());
+				return;
+			}			
+		}
+		// Sobrinho(a)
+		if( (p.getPai() != null && this.getPai() != null && this.getPai().getPai() != null && 
+				p.getPai() == this.getPai().getPai() ) ||
+				(p.getPai() != null && this.getMae() != null && this.getMae().getPai() != null && 
+				p.getPai() == this.getMae().getPai() ) ||
+				(p.getMae() != null && this.getPai() != null && this.getPai().getMae() != null && 
+				p.getMae() == this.getPai().getMae() ) ||
+				(p.getMae() != null && this.getMae() != null && this.getMae().getMae() != null && 
+				p.getMae() == this.getMae().getMae() )) {
+			if (this instanceof Homem) {
+				System.out.println(this.getNome() + " é sobrinho de " + p.getNome());
+				return;
+			} else {
+				System.out.println(this.getNome() + " é sobrinha de " + p.getNome());
+				return;
+			}
+		}
 		//Outros relacionamentos 
 		// |
 		// V
-		/*
-		public void listarFilhos(Pessoa p){
-			for
-		}
-		 */
 		//Se não houver parentesco
 		System.out.println(this.getNome() + " e " + p.getNome() +  " não têm parentesco");
-	};
-	
+	}
+
 	
 	//Métodos de Acesso
 	public String getNome() {
