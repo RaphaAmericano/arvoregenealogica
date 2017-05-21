@@ -69,7 +69,7 @@ public class TestePessoa {
 			parente1.verificarParentesco(parente2);
 			System.out.println("");
 		}
-		System.out.println("--- Fim Teste Parentesco ---");
+		System.out.println("--- Fim Teste Parentesco ---\n");
 		
 		// IMC
 		Pessoa[] pessoasTesteIMC = {donaFlorinda, donaNeves, maeChiquinha, profGirafales};
@@ -96,19 +96,23 @@ public class TestePessoa {
 			}
 			System.out.println("");
 		}
-		System.out.println("--- Fim Teste Calcular IMC ---");
+		System.out.println("--- Fim Teste Calcular IMC ---\n");
 
 		// Fazer filho
+		System.out.println("--- Teste Fazer filhos ---");
 		Pessoa p2 = new Homem("João", 20, null, null);
 		Pessoa p1 = new Mulher("Maria", 20, null, null);
 		p1.fazerFilho("Joao", "Joana", p1, p2);
 		p1.fazerFilho("Joao", "Joana", p1, p2);
 		p1.fazerFilho("Joao", "Joana", p1, p2);
 		p1.fazerFilho("Joao", "Joana", p1, p2);
+		System.out.println("--- Fim Teste Fazer filhos ---\n");
 
 		// Listar filhos
+		System.out.println("--- Teste Listar filhos ---");
 		p1.listarFilhos();
 		p2.listarFilhos();
+		System.out.println("--- Fim Teste Listar filhos ---\n");
 
 		
 	}
