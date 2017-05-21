@@ -7,24 +7,27 @@ public abstract class Pessoa{
 	
 	protected String nome;
 	protected int idade;
-	protected char sexo;///Muda pra classe mulher
+	protected char sexo;
 	protected Pessoa conjuge;
 	protected Pessoa mae;
 	protected Pessoa pai;
 	protected List<Pessoa> exs = new ArrayList<Pessoa>();
+	public static List<Pessoa> todasPessoas = new ArrayList<Pessoa>();
 	
-	public Pessoa(){
-		TestePessoa.todasPessoas.add(this);
-	}
-	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai /*, char sexo*/) {
-		super();
+	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai, char sexo) {
 		this.nome = nome;
 		this.idade = idade;
 		this.mae = mae;
 		this.pai = pai;
-		//this.sexo = sexo;
+		this.sexo = sexo;
 		//Adiciona a pessoa criada ao ArrayList
-		TestePessoa.todasPessoas.add(this);
+		Pessoa.todasPessoas.add(this);
+	}
+	
+	public static void listarTodasPessoas(){
+		for(Pessoa pessoa: Pessoa.todasPessoas){
+			System.out.println(pessoa.getNome());
+		}
 	}
 
 	public void fazerFilho(String nomeMenino, String nomeMenina, Pessoa mae, Pessoa pai){
@@ -40,7 +43,7 @@ public abstract class Pessoa{
 		
 	}
 	public void listarFilhos(){
-		for(Pessoa filho: TestePessoa.todasPessoas){
+		for(Pessoa filho: Pessoa.todasPessoas){
 			if(filho.getMae() == this || filho.getPai() == this ){
 				System.out.println( filho.getNome());
 			}
@@ -103,13 +106,13 @@ public abstract class Pessoa{
 		}
 		
 		if(this.getConjuge() != null ){
-			System.out.print(this.getNome() + married);
+			System.out.println(this.getNome() + married);
 		}
 		else if( this.getConjuge() == null && this.getExs().isEmpty() ){
-			System.out.print(this.getNome() + single);
+			System.out.println(this.getNome() + single);
 		}
 		else{
-			System.out.print(this.getNome() + divorced);
+			System.out.println(this.getNome() + divorced);
 		}
 	}
 	

@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class TestePessoa {
-	public static List<Pessoa> todasPessoas = new ArrayList<Pessoa>();
+	//public static List<Pessoa> todasPessoas = new ArrayList<Pessoa>();
 	public static void main(String[] args) {
 		
 		// Árvore OFICIAL - Família Chaves
@@ -114,7 +114,12 @@ public class TestePessoa {
 		p2.listarFilhos();
 		System.out.println("--- Fim Teste Listar filhos ---\n");
 
+		System.out.println("--- Teste Estado Civil ---");
 		p2.verificarEstadoCivil();
+		System.out.println("--- Fim Teste Estado Civil ---\n");
 		
+		System.out.println("--- Teste Listar Todas Pessoas ---");
+		Pessoa.listarTodasPessoas();
+		System.out.println("--- Fim Listar Todas Pessoas ---\n");
 	}
 }

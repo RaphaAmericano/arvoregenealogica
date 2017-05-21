@@ -1,5 +1,4 @@
 package arvore_genealogica;
-import java.math.*;
 
 public class Mulher extends Pessoa implements ControledePeso {
 	
@@ -9,15 +8,14 @@ public class Mulher extends Pessoa implements ControledePeso {
 	
 	// Construtores
 	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai){
-		super(nome, idade, mae, pai);
+		super(nome, idade, mae, pai, 'm');
 		this.setSexo('F');
 	}
 	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai, double altura, double peso){
-		super(nome, idade, mae, pai);
+		super(nome, idade, mae, pai, 'm');
 		this.setSexo('F');
 		this.setAltura(altura);
 		this.setPeso(peso);
-		
 	}
 	
 	// Implementa o método Calcular IMC
