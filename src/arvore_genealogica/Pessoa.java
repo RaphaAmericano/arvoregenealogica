@@ -6,8 +6,9 @@ import java.util.List;
 //TODO tornar a classe Pessoa ABSTRATA para criarmos somente homens ou mulheres
 public class Pessoa implements Utilitarios{
 	
-	protected double altura;
-	protected double peso;
+	//protected double altura;
+	//protected double peso;   // Características exclusivas para Mulher
+	
 	
 	protected String nome;
 	protected int idade;
@@ -271,16 +272,5 @@ public class Pessoa implements Utilitarios{
 	public void setExs(List<Pessoa> exs) {
 		this.exs = exs;
 	}
-	public double getAltura() {
-		return altura;
-	}
-	public void setAltura(double altura) {
-		this.altura = altura;
-	}
-	public double getPeso() {
-		return peso;
-	}
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
+
 }

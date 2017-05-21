@@ -80,8 +80,8 @@ public class TestePessoa {
 		Pessoa bruxaDo71 = new Mulher("Bruxa do 71", 52, null, null);
 		// Terceira Geração
 		Pessoa quico = new Homem("Quico", 8, donaFlorinda, quicoPai);
-		Pessoa kika = new Mulher("Kika", 15, donaFlorinda, quicoPai);
-		Pessoa chiquinha = new Mulher("Chiquinha", 8, maeChiquinha, seuMadruga);
+		Pessoa kika = new Mulher("Kika", 15, donaFlorinda, quicoPai, 1.40, 100);
+		Pessoa chiquinha = new Mulher("Chiquinha", 8, maeChiquinha, seuMadruga, 1.20, 35.5);
 		Pessoa chaves = new Homem("Chaves", 8, bruxaDo71, seuMadruga);
 		// Casamentos
 		donaNeves.casar(sirNeves);
@@ -97,13 +97,12 @@ public class TestePessoa {
 		// TESTES
 
 		// Teste - Relação de Parentesco
-
 		// Entrada de informacoes dos casos de teste
-		Pessoa[] pessoasParentesco1 = {chaves, quicoPai, donaFlorinda, profGirafales, donaFlorinda, 
+		Pessoa[] pessoasTesteParentesco1 = {chaves, quicoPai, donaFlorinda, profGirafales, donaFlorinda, 
 				chaves, chiquinha, sirNeves, donaNeves, quicoPai, maeChiquinha, quico, chiquinha, chaves, chaves, chiquinha};
-		Pessoa[] pessoasParentesco2 = {donaFlorinda, quico, quico, donaFlorinda, profGirafales, 
+		Pessoa[] pessoasTesteParentesco2 = {donaFlorinda, quico, quico, donaFlorinda, profGirafales, 
 				seuMadruga, seuMadruga, chiquinha, chiquinha, chiquinha, quico, maeChiquinha, quicoPai, null, chaves, chaves};
-		String[] resultadosParentesco = {"Chaves e Dona Florinda não têm parentesco", 
+		String[] resultadosTesteParentesco = {"Chaves e Dona Florinda não têm parentesco", 
 				"Quico Pai é pai de Quico", "Dona Florinda é mãe de Quico", 
 				"Prof Girafales é marido de Dona Florinda", "Dona Florinda é esposa de Prof Girafales", 
 				"Chaves é filho de Seu Madruga", "Chiquinha é filha de Seu Madruga", 
@@ -113,14 +112,43 @@ public class TestePessoa {
 				"Erro - não é possível verificar parentesco com pessoa 'nula' (null)", 
 				"Erro - não é possível verificar parentesco de uma pessoa com ela mesma",
 				"Chiquinha é meia-irmã de Chaves"};
-
 		// Realiza os testes mapeados
 		System.out.println("--- Teste Parentesco ---");
-		for(int i = 0; i<resultadosParentesco.length; i++ ){
+		for(int i = 0; i<resultadosTesteParentesco.length; i++ ){
 			// Imprime o resultado esperado
-			System.out.println("- Esperado:\n" + resultadosParentesco[i] + "\n- Resultado:");
+			System.out.println("- Esperado:\n" + resultadosTesteParentesco[i] + "\n- Resultado:");
 			// Verifica parentesco entre pessoa 1 e pessoa 2
-			pessoasParentesco1[i].verificarParentesco(pessoasParentesco2[i]);
+			pessoasTesteParentesco1[i].verificarParentesco(pessoasTesteParentesco2[i]);
+			System.out.println("");
+		}
+		System.out.println("--- Fim Teste Parentesco ---");
+		
+		
+		// Testes Calcular IMC
+		
+		// Entrada de informacoes dos casos de teste
+		Pessoa[] pessoasTesteIMC = {donaFlorinda, donaNeves, maeChiquinha, profGirafales};
+		double[] alturasTesteIMC = {1.75, 1.45, 1.65, 2.10};
+		double[] pesosTesteIMC = {66.6, 32.5, 80, 110};
+		String[] resultadosTesteIMC = {"Dona Florinda: IMC = 21.74 - Peso normal", 
+				"Dona Neves: IMC = 15.46 - Muito abaixo do peso", 
+				"Mãe da Chiquinha: IMC = 29.38 - Acima do peso", 
+				"Função inválida para homens"};
+		Mulher mTeste;
+		// Realiza os testes mapeados
+		System.out.println("--- Teste Calcular IMC ---");
+		for(int i = 0; i<pessoasTesteIMC.length; i++ ){
+			// Imprime o resultado esperado
+			System.out.println("- Esperado:\n" + resultadosTesteIMC[i] + "\n- Resultado:");
+			// Calcula IMC
+			if(pessoasTesteIMC[i] instanceof Mulher){
+				mTeste = (Mulher) pessoasTesteIMC[i];
+				mTeste.setAltura(alturasTesteIMC[i]);
+				mTeste.setPeso(pesosTesteIMC[i]);
+				mTeste.calcularIMC();				
+			} else {
+				System.out.println("Função inválida para homens");
+			}
 			System.out.println("");
 		}
 		System.out.println("--- Fim Teste Parentesco ---");

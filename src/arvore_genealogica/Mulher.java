@@ -3,6 +3,11 @@ import java.math.*;
 
 public class Mulher extends Pessoa implements ControledePeso {
 	
+	// Caracteristicas exclusivas de Mulher
+	protected double altura = 1.65;  //altura padrão
+	protected double peso = 65;     // peso padrão
+	
+	// Construtores
 	public Mulher(){
 		
 	}
@@ -10,6 +15,14 @@ public class Mulher extends Pessoa implements ControledePeso {
 		super(nome, idade, mae, pai);
 		this.setSexo('F');
 	}
+	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai, double altura, double peso){
+		super(nome, idade, mae, pai);
+		this.setSexo('F');
+		this.setAltura(altura);
+		this.setPeso(peso);
+		
+	}
+	
 	/*
 	public void fazerFilho(Object affair){
 		int numeroRandomico;
@@ -23,35 +36,38 @@ public class Mulher extends Pessoa implements ControledePeso {
 		m1.setMae(affair);
 	};
 	*/
+	
+	// Implementa o método Calcular IMC
 	public void calcularIMC(){
-		double imc =  this.peso / this.altura;
+		double imc =  this.getPeso() / (this.getAltura() * this.getAltura());
 		
-		if(imc > 40.00){
-			System.out.println("Obesidade 3(Mórbida)");
+		if(imc >= 40.00){
+			System.out.println(this.nome + ": IMC = " + imc + " - Obesidade 3(Mórbida)");
 			return;
-		}else if(imc > 35.00 && imc < 39.99){
-			System.out.println("Obesidade 2(Severa)");
+		}else if(imc >= 35.00){
+			System.out.println(this.nome + ": IMC = " + imc + " - Obesidade 2(Severa)");
 			return;
-		}else if(imc > 30.00 && imc < 34.99){
-			System.out.println("Obesidade 1");
+		}else if(imc >= 30.00){
+			System.out.println(this.nome + ": IMC = " + imc + " - Obesidade 1");
 			return;
-		}else if(imc > 25.00 && imc < 29.99){
-			System.out.println("Acima do peso");
+		}else if(imc >= 25.00){
+			System.out.println(this.nome + ": IMC = " + imc + " - Acima do peso");
 			return;
-		}else if(imc > 18.50 && imc < 24.99){
-			System.out.println("Peso normal");
+		}else if(imc >= 18.50){
+			System.out.println(this.nome + ": IMC = " + imc + " - Peso normal");
 			return;
-		}else if(imc > 17 && imc < 18.49){
-			System.out.println("Abaixo do peso");
+		}else if(imc >= 17){
+			System.out.println(this.nome + ": IMC = " + imc + " - Abaixo do peso");
 			return;
-		}else if(imc < 17.00){
-			System.out.println("Muito abaixo do peso");
+		}else {
+			System.out.println(this.nome + ": IMC = " + imc + " - Muito abaixo do peso");
 			return;
 		}
 		//Informações acima sobre tipos de obesidade foram retiradas da internet e não necessariamente foram verificadas
 	};
 	
 	//Método para verificar Estado Civil
+	//TODO: implementar na classe Pessoa
 	public void verificarEstadoCivil(){
 		if(this.getConjuge() != null ){
 			System.out.print(this.getNome() + " é casada");
@@ -62,6 +78,22 @@ public class Mulher extends Pessoa implements ControledePeso {
 		else{
 			System.out.print(this.getNome() + " é divorciada");
 		}
+	}
+	
+	// Métodos de acesso
+	public double getAltura() {
+		return altura;
+	}
+	public void setAltura(double altura) {
+		this.altura = altura;
+	}
+	public double getPeso() {
+		return peso;
+	}
+	public void setPeso(double peso) {
+		this.peso = peso;
 	};
+	
+	
 }
 
