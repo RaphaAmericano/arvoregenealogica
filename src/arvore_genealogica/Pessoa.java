@@ -3,8 +3,7 @@ package arvore_genealogica;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO tornar a classe Pessoa ABSTRATA para criarmos somente homens ou mulheres
-public class Pessoa implements Utilitarios{
+public abstract class Pessoa implements Utilitarios{
 	
 	//protected double altura;
 	//protected double peso;   // Características exclusivas para Mulher
