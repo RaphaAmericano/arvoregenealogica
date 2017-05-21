@@ -64,7 +64,7 @@ public class TestePessoa {
 		*/
 		
 		// Árvore OFICIAL - Família Chaves
-		
+
 		// Criação de pessoas
 		// Primeira Geração
 		Pessoa donaNeves = new Mulher("Dona Neves", 99, null, null);
@@ -74,7 +74,7 @@ public class TestePessoa {
 		// Segunda Geração
 		Pessoa quicoPai = new Homem("Quico Pai", 55, donaNeves, sirNeves);
 		Pessoa donaFlorinda = new Mulher("Dona Florinda", 41, null, null);
-		Pessoa professorGirafales = new Homem("ProfessorGirafales", 45, null, null);	
+		Pessoa profGirafales = new Homem("Prof Girafales", 45, null, null);	
 		Pessoa maeChiquinha = new Mulher("Mae da Chiquinha", 40, donaNeves, sirNeves);
 		Pessoa seuMadruga = new Homem("Seu Madruga", 49, donaMadruga, sirMadruga);
 		Pessoa bruxaDo71 = new Mulher("Bruxa do 71", 52, null, null);
@@ -83,27 +83,45 @@ public class TestePessoa {
 		Pessoa kika = new Mulher("Kika", 15, donaFlorinda, quicoPai);
 		Pessoa chiquinha = new Mulher("Chiquinha", 8, maeChiquinha, seuMadruga);
 		Pessoa chaves = new Homem("Chaves", 8, bruxaDo71, seuMadruga);
-		
+		// Casamentos
+		donaNeves.casar(sirNeves);
+		donaMadruga.casar(sirMadruga);
+		quicoPai.casar(donaFlorinda);
+		quicoPai.divorciar(donaFlorinda);
+		donaFlorinda.casar(profGirafales);
+		maeChiquinha.casar(seuMadruga);
+		maeChiquinha.divorciar(seuMadruga);
+		seuMadruga.casar(bruxaDo71);
+
+
 		// TESTES
-		
-		// Teste - Relação de Parentesco	
-		Pessoa[] pessoasParentesco1 = {chaves, quicoPai, donaFlorinda, professorGirafales, donaFlorinda, 
-				chaves, chiquinha, sirNeves, donaNeves, quicoPai, maeChiquinha, quico, chiquinha};
-		Pessoa[] pessoasParentesco2 = {donaFlorinda, quico, quico, donaFlorinda, professorGirafales, 
-				seuMadruga, seuMadruga, chiquinha, chiquinha, chiquinha, quico, maeChiquinha, quicoPai};
+
+		// Teste - Relação de Parentesco
+
+		// Entrada de informacoes dos casos de teste
+		Pessoa[] pessoasParentesco1 = {chaves, quicoPai, donaFlorinda, profGirafales, donaFlorinda, 
+				chaves, chiquinha, sirNeves, donaNeves, quicoPai, maeChiquinha, quico, chiquinha, chaves, chaves, chiquinha};
+		Pessoa[] pessoasParentesco2 = {donaFlorinda, quico, quico, donaFlorinda, profGirafales, 
+				seuMadruga, seuMadruga, chiquinha, chiquinha, chiquinha, quico, maeChiquinha, quicoPai, null, chaves, chaves};
 		String[] resultadosParentesco = {"Chaves e Dona Florinda não têm parentesco", 
 				"Quico Pai é pai de Quico", "Dona Florinda é mãe de Quico", 
 				"Prof Girafales é marido de Dona Florinda", "Dona Florinda é esposa de Prof Girafales", 
-				"Chaves é filho Seu Madruga", "Chiquinha é filha de seu madruga", 
+				"Chaves é filho de Seu Madruga", "Chiquinha é filha de seu madruga", 
 				"Sir Neves é avô de chiquinha", "Dona Neves é avó de chiquinha", 
 				"Quico pai é tio de Chiquinha", "Mãe da Chiquinha é tia de Quico", 
-				"Quico é sobrinho de Mãe da Chiquinha", "Chiquinha é sobrinha de Quico Pai"};
-		
+				"Quico é sobrinho de Mãe da Chiquinha", "Chiquinha é sobrinha de Quico Pai",
+				"Erro - não é possível verificar parentesco com pessoa 'nula' (null)", 
+				"Erro - não é possível verificar parentesco de uma pessoa com ela mesma",
+				"Chiquinha é meia-irmã de Chaves"};
+
+		// Realiza os testes mapeados
 		System.out.println("--- Teste Parentesco ---");
 		for(int i = 0; i<resultadosParentesco.length; i++ ){
+			// Imprime o resultado esperado
 			System.out.println("- Esperado:\n" + resultadosParentesco[i] + "\n- Resultado:");
+			// Verifica parentesco entre pessoa 1 e pessoa 2
 			pessoasParentesco1[i].verificarParentesco(pessoasParentesco2[i]);
-			System.out.println("\n");
+			System.out.println("");
 		}
 		System.out.println("--- Fim Teste Parentesco ---");
 
