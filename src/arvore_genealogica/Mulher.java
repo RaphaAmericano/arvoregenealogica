@@ -47,7 +47,7 @@ public class Mulher extends Pessoa implements ControledePeso {
 			return;
 		}
 		//Informações acima sobre tipos de obesidade foram retiradas da internet e não necessariamente foram verificadas
-	};
+	}
 	
 	//Método para verificar Estado Civil
 	//TODO: implementar na classe Pessoa

@@ -106,6 +106,9 @@ public class TestePessoa {
 		p1.fazerFilho("Joao", "Joana", p1, p2);
 		p1.fazerFilho("Joao", "Joana", p1, p2);
 
+		// Listar filhos
+		p1.listarFilhos();
+		p2.listarFilhos();
 
 		
 	}

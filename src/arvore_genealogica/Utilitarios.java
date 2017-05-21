@@ -4,5 +4,4 @@ import java.math.*;
 
 
 public interface Utilitarios {
-	public abstract void fazerFilho();
 }

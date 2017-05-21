@@ -19,7 +19,7 @@ public abstract class Pessoa implements Utilitarios{
 	protected List<Pessoa> exs = new ArrayList<Pessoa>();
 	public Pessoa(){
 		TestePessoa.todasPessoas.add(this);
-	};
+	}
 
 	//Construtor
 	public Pessoa(String nome, int idade, Pessoa mae, Pessoa pai /*, char sexo*/) {
@@ -42,9 +42,16 @@ public abstract class Pessoa implements Utilitarios{
 		} else if(numeroRandomico == 2){
 			np = new Homem(nomeMenino, 0, mae, pai);
 			System.out.println("Parabéns! É um menino e o nome dele é " + np.getNome());
-		};
+		}
 		
-	};
+	}
+	public void listarFilhos(){
+		for(Pessoa filho: TestePessoa.todasPessoas){
+			if(filho.getMae() == this || filho.getPai() == this ){
+				System.out.println( filho.getNome());
+			}
+		}
+	}
 	
 	
 	
@@ -72,7 +79,8 @@ public abstract class Pessoa implements Utilitarios{
 		this.setConjuge(p);
 		p.setConjuge(this);
 		System.out.println("Casou! TAM TAM TAM TAAAAAM! *** Pode beijar a noiva!");
-	};
+	}
+	
 	//Divorciar
 	public void divorciar(Pessoa p){
 		if(p == null){
@@ -89,7 +97,7 @@ public abstract class Pessoa implements Utilitarios{
 		this.setConjuge(null);
 		System.out.println("*** "+p.getNome()+" tá na pista de novo!!");
 		System.out.println("*** "+this.getNome()+" tá na pista de novo!!");
-	};
+	}
 	
 	//Método para verificar Estado Civil
 	public void verificarEstadoCivil(){};
@@ -108,16 +116,7 @@ public abstract class Pessoa implements Utilitarios{
 				System.out.println("---"+ pessoa.getNome());
 			}
 		}
-	};
-	
-	//Listar filhos
-	public void listarFilhos(){
-		for(Pessoa filho: TestePessoa.todasPessoas){
-			if(filho.getMae() == this || filho.getPai() == this ){
-				System.out.println( filho.getNome());
-			}
-		}
-	};
+	}
 	
 	//Verificar parentesco
 	public void verificarParentesco(Pessoa p){
