@@ -3,7 +3,7 @@ package arvore_genealogica;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Pessoa{
+public abstract class Pessoa implements Humano{
 	
 	protected String nome;
 	protected int idade;
