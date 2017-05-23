@@ -10,10 +10,10 @@ public class Mulher extends Pessoa implements Humano, ControledePeso {
 	
 	// Construtores
 	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai){
-		super(nome, idade, mae, pai, 'm');
+		super(nome, idade, mae, pai, 'F');
 	}
 	public Mulher(String nome, int idade, Pessoa mae, Pessoa pai, double altura, double peso){
-		super(nome, idade, mae, pai, 'm');
+		super(nome, idade, mae, pai, 'F');
 		this.setAltura(altura);
 		this.setPeso(peso);
 	}

@@ -57,7 +57,9 @@ public class TestePessoa {
 				{chiquinha, quicoPai, "Chiquinha é sobrinha de Quico Pai"},
 				{chaves, null, "Erro - não é possível verificar parentesco com pessoa 'nula' (null)"},
 				{chaves, chaves, "Erro - não é possível verificar parentesco de uma pessoa com ela mesma"},
-				{chiquinha, chaves, "Chiquinha é meia-irmã de Chaves"}
+				{chiquinha, chaves, "Chiquinha é meia-irmã de Chaves"},
+				{chiquinha, donaNeves, "Chiquinha é neta de Dona Neves"},
+				{quico, sirNeves, "Quico é neto de Sir Neves"}
 				};
 		System.out.println("--- Teste Parentesco ---");
 		for(int i = 0; i<testeParentesco.length; i++ ){
@@ -102,10 +104,11 @@ public class TestePessoa {
 		System.out.println("--- Teste Fazer filhos ---");
 		Pessoa p2 = new Homem("João", 20, null, null);
 		Pessoa p1 = new Mulher("Maria", 20, null, null);
-		p1.fazerFilho("Joao", "Joana", p1, p2);
-		p1.fazerFilho("Joao", "Joana", p1, p2);
-		p1.fazerFilho("Joao", "Joana", p1, p2);
-		p1.fazerFilho("Joao", "Joana", p1, p2);
+		p1.fazerFilho("Joao", "Joana", null);
+		p1.fazerFilho("Joao", "Joana", p1);
+		p1.fazerFilho("Joao", "Joana", p2);
+		p1.fazerFilho("Joao", "Joana", p2);
+		p1.fazerFilho("Joao", "Joana", p2);
 		System.out.println("--- Fim Teste Fazer filhos ---\n");
 
 		// Listar filhos

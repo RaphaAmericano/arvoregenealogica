@@ -30,7 +30,15 @@ public abstract class Pessoa implements Humano{
 		}
 	}
 
-	public void fazerFilho(String nomeMenino, String nomeMenina, Pessoa mae, Pessoa pai){
+	public void fazerFilho(String nomeMenino, String nomeMenina, Pessoa outraPessoa){
+		if(outraPessoa == null){
+			System.out.println("Não é possível fazer filho com pessoa nula (null).");
+			return;
+		}
+		if(outraPessoa.getSexo() == this.getSexo()){
+			System.out.println("Não é possível fazer filho com pessoa do mesmo sexo.");
+			return;
+		}
 		Pessoa np;
 		int numeroRandomico = (int)(Math.random() * 2) + 1;
 		if(numeroRandomico == 1 ){
@@ -184,6 +192,19 @@ public abstract class Pessoa implements Humano{
 			System.out.println(this.getNome() + " é avó de " + p.getNome());
 			return;
 		}
+		//Neto/Neta
+		if((this.getPai() != null && this.getPai().getPai() != null && p == this.getPai().getPai()) || 
+				(this.getMae() != null && this.getMae().getPai() != null && p == this.getMae().getPai() ) || 
+				(this.getMae() != null && this.getMae().getMae() != null && p == this.getMae().getMae() ) || 
+				(this.getPai() != null && this.getPai().getMae() != null && p == this.getPai().getMae() )){
+			if(this instanceof Homem){
+				System.out.println(this.getNome() + " é neto de " + p.getNome());
+				return;
+			} else {
+				System.out.println(this.getNome() + " é neta de " + p.getNome());
+				return;
+			}
+		}
 		//Irmão
 		if( ((this.getPai() != null && p.getPai() != null) && this.getPai() == p.getPai()) && 
 				(this.getMae() != null && p.getMae() != null) && this.getMae() == p.getMae()) {
@@ -240,9 +261,7 @@ public abstract class Pessoa implements Humano{
 				return;
 			}
 		}
-		//Outros relacionamentos 
-		// |
-		// V
+		
 		//Se não houver parentesco
 		System.out.println(this.getNome() + " e " + p.getNome() +  " não têm parentesco");
 	}
