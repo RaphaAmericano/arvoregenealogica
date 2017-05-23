@@ -124,5 +124,6 @@ public class TestePessoa {
 		System.out.println("--- Teste Listar Todas Pessoas ---");
 		Pessoa.listarTodasPessoas();
 		System.out.println("--- Fim Listar Todas Pessoas ---\n");
+		
 	}
 }

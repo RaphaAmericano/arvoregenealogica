@@ -59,8 +59,8 @@ public abstract class Pessoa implements Humano{
 	}
 	
 	public void casar(Pessoa p){
-		//Condicoções 
-		//idade >= 16, não pode estar casado, não pode ser pai, mão, ele proprio ou pessoas esquisitas
+		//Condições 
+		//idade >= 16, não pode estar casado, não pode ser pai, mãe, ele proprio
 		if(p == null){
 			System.out.println("Não pode casar com null");
 			return;
@@ -75,6 +75,23 @@ public abstract class Pessoa implements Humano{
 		if(this.getConjuge() != null || p.getConjuge() != null){
 			System.out.println("Não pode casar se já for casado!");
 			return;
+		}
+		if(this.pai != null && this.pai == p){
+			System.out.println("Não pode casar com o próprio pai!");
+			return;
+		}
+		if(this.mae != null && this.mae == p){
+			System.out.println("Não pode casar com a própria mae!");
+			return;
+		}
+		if(p.pai != null && this == p.pai){
+			if(this instanceof Homem){
+				System.out.println("Não pode casar com o próprio filho!");
+				return;
+			} else {
+				System.out.println("Não pode casar com a própria filha!");
+				return;
+			}
 		}
 		//Casamento
 		this.setConjuge(p);
@@ -170,7 +187,7 @@ public abstract class Pessoa implements Humano{
 				return;
 			}
 		}
-		//Filho
+		//Filho/Filha
 		if( (this.getPai() != null && this.getPai() == p) || (this.getMae() != null && this.getMae() == p) ){
 			if(this instanceof Homem){
 				System.out.println(this.getNome() + " é filho de "+ p.getNome() );
@@ -205,7 +222,7 @@ public abstract class Pessoa implements Humano{
 				return;
 			}
 		}
-		//Irmão
+		//Irmão(ã)
 		if( ((this.getPai() != null && p.getPai() != null) && this.getPai() == p.getPai()) && 
 				(this.getMae() != null && p.getMae() != null) && this.getMae() == p.getMae()) {
 			if(this instanceof Homem){
@@ -216,7 +233,7 @@ public abstract class Pessoa implements Humano{
 				return;
 			}
 		}
-		//Meio-irmão
+		//Meio(a)-irmão(ã)
 		if( ((this.getPai() != null && p.getPai() != null) && this.getPai() == p.getPai()) || 
 				(this.getMae() != null && p.getMae() != null) && this.getMae() == p.getMae()) {
 			if(this instanceof Homem){
