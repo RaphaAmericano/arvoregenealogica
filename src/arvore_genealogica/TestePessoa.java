@@ -115,6 +115,7 @@ public class TestePessoa {
 		System.out.println("--- Teste Listar filhos ---");
 		p1.listarFilhos();
 		p2.listarFilhos();
+		donaNeves.listarFilhos();
 		System.out.println("--- Fim Teste Listar filhos ---\n");
 
 		System.out.println("--- Teste Estado Civil ---");

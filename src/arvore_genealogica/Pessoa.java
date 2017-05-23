@@ -39,7 +39,16 @@ public abstract class Pessoa implements Humano{
 			System.out.println("Não é possível fazer filho com pessoa do mesmo sexo.");
 			return;
 		}
+		Pessoa pai;
+		Pessoa mae;
 		Pessoa np;
+		if(this instanceof Homem){
+			pai = this;
+			mae = outraPessoa;
+		} else {
+			pai = outraPessoa;
+			mae = this;
+		}
 		int numeroRandomico = (int)(Math.random() * 2) + 1;
 		if(numeroRandomico == 1 ){
 			np = new Mulher(nomeMenina, 0, mae, pai);
