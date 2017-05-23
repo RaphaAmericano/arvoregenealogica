@@ -62,10 +62,16 @@ public abstract class Pessoa implements Humano{
 		
 	}
 	public void listarFilhos(){
+		System.out.println("Filhos de " + this.getNome() + ":");
+		int contadorFilhos = 0;
 		for(Pessoa filho: Pessoa.todasPessoas){
 			if(filho.getMae() == this || filho.getPai() == this ){
 				System.out.println( filho.getNome());
+				contadorFilhos++;
 			}
+		}
+		if(contadorFilhos == 0){
+			System.out.println("0 filhos");
 		}
 	}
 	

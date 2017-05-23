@@ -48,8 +48,6 @@ public class Mulher extends Pessoa implements Humano, ControledePeso {
 		//Informações acima sobre tipos de obesidade foram retiradas da internet e não foram verificadas
 	}
 	
-	//Método para verificar Estado Civil
-	//TODO: implementar na classe Pessoa
 	
 	// Métodos de acesso
 	public double getAltura() {
