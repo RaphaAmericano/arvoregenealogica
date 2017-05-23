@@ -24,12 +24,14 @@ public abstract class Pessoa implements Humano{
 		Pessoa.todasPessoas.add(this);
 	}
 	
+	// MÉTODO ESTÁTICO
 	public static void listarTodasPessoas(){
 		for(Pessoa pessoa: Pessoa.todasPessoas){
 			System.out.println(pessoa.getNome());
 		}
 	}
 
+	// NOVA FUNCIONALIDADE - FazerFilho
 	public void fazerFilho(String nomeMenino, String nomeMenina, Pessoa outraPessoa){
 		if(outraPessoa == null){
 			System.out.println("Não é possível fazer filho com pessoa nula (null).");

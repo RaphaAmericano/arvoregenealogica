@@ -45,7 +45,7 @@ public class Mulher extends Pessoa implements Humano, ControledePeso {
 			System.out.println(this.nome + ": IMC = " + df.format(imc) + " - Muito abaixo do peso");
 			return;
 		}
-		//Informações acima sobre tipos de obesidade foram retiradas da internet e não necessariamente foram verificadas
+		//Informações acima sobre tipos de obesidade foram retiradas da internet e não foram verificadas
 	}
 	
 	//Método para verificar Estado Civil
