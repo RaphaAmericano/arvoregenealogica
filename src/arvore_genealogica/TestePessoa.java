@@ -1,8 +1,5 @@
 package arvore_genealogica;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class TestePessoa {
 	//public static List<Pessoa> todasPessoas = new ArrayList<Pessoa>();

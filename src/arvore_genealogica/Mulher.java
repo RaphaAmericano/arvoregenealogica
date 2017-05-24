@@ -2,7 +2,7 @@ package arvore_genealogica;
 
 import java.text.DecimalFormat;
 
-public class Mulher extends Pessoa implements Humano, ControledePeso {
+public class Mulher extends Pessoa implements ControledePeso {
 	
 	// Caracteristicas exclusivas de Mulher
 	protected double altura = 1.65;  //altura padrão
