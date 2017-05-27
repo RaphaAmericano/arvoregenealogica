@@ -38,7 +38,7 @@ public class TestePessoa {
 
 		// TESTES
 		// Parentesco
-		Object[][] testeParentesco = {
+		Object[][] listaTesteParentesco = {
 				{chaves, donaFlorinda, "Chaves e Dona Florinda não tem parentesco"},
 				{quicoPai, quico, "Quico Pai é pai de Quico"},
 				{donaFlorinda, quico, "Dona Florinda é mãe de Quico"},
@@ -59,19 +59,19 @@ public class TestePessoa {
 				{quico, sirNeves, "Quico é neto de Sir Neves"}
 				};
 		System.out.println("--- Teste Parentesco ---");
-		for(int i = 0; i<testeParentesco.length; i++ ){
+		for(Object[] testeParentesco : listaTesteParentesco){
 			// Imprime o resultado esperado
-			System.out.println("- Esperado:\n" + testeParentesco[i][2] + "\n- Resultado:");
+			System.out.println("- Esperado:\n" + testeParentesco[2] + "\n- Resultado:");
 			// Verifica parentesco entre pessoa 1 e pessoa 2
-			Pessoa parente1 = (Pessoa)testeParentesco[i][0];
-			Pessoa parente2 = (Pessoa)testeParentesco[i][1];
+			Pessoa parente1 = (Pessoa)testeParentesco[0];
+			Pessoa parente2 = (Pessoa)testeParentesco[1];
 			parente1.verificarParentesco(parente2);
 			System.out.println("");
 		}
 		System.out.println("--- Fim Teste Parentesco ---\n");
 		
 		// IMC
-		Object[][] testeIMC = {
+		Object[][] listaTesteIMC = {
 				{donaFlorinda, 1.75d, 66.6d, "Dona Florinda: IMC = 21.74 - Peso normal"},
 				{donaNeves, 1.45d, 32.5d, "Dona Neves: IMC = 15.46 - Muito abaixo do peso"},
 				{maeChiquinha, 1.65d, 80d, "Mãe da Chiquinha: IMC = 29.38 - Acima do peso"},
@@ -80,14 +80,14 @@ public class TestePessoa {
 		Mulher mTeste;
 		// Realiza os testes mapeados
 		System.out.println("--- Teste Calcular IMC ---");
-		for(int i = 0; i<testeIMC.length; i++ ){
+		for(Object[]testeIMC : listaTesteIMC){
 			// Imprime o resultado esperado
-			System.out.println("- Esperado:\n" + testeIMC[i][3] + "\n- Resultado:");
+			System.out.println("- Esperado:\n" + testeIMC[3] + "\n- Resultado:");
 			// Calcula IMC
-			if(testeIMC[i][0] instanceof Mulher){
-				mTeste = (Mulher) testeIMC[i][0];
-				mTeste.setAltura((double) testeIMC[i][1]);
-				mTeste.setPeso((double) testeIMC[i][2]);
+			if(testeIMC[0] instanceof Mulher){
+				mTeste = (Mulher) testeIMC[0];
+				mTeste.setAltura((double) testeIMC[1]);
+				mTeste.setPeso((double) testeIMC[2]);
 				mTeste.calcularIMC();				
 			} else {
 				System.out.println("Função inválida para homens");
